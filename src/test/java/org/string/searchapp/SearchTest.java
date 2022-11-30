@@ -14,9 +14,12 @@ public class SearchTest {
         dictionary.add("ab");
         dictionary.add("abba");
         dictionary.add("efg");
-        String input = "866abbaefaba";
+        String input = "866Abbaefaba";
 
-        int foundWords = Search.searchForWords(dictionary, input);
+        int foundWords;
+        foundWords = Search.searchForWords(dictionary, input, false);
         Assertions.assertEquals(2, foundWords);
+        foundWords = Search.searchForWords(dictionary, input, true);
+        Assertions.assertEquals(1, foundWords);
     }
 }
