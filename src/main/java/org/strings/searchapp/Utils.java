@@ -2,6 +2,7 @@ package org.strings.searchapp;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -48,5 +49,10 @@ public class Utils {
             }
         } while (true);
         return value;
+    }
+
+    public static void writeFile(String filename, String content) throws IOException {
+        Path path = Paths.get("src/main/resources/" + filename);
+        Files.write(path, content.getBytes(StandardCharsets.UTF_8));
     }
 }
