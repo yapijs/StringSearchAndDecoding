@@ -33,4 +33,20 @@ public class Utils {
     public static String getUserInput(Scanner scanner) {
         return scanner.nextLine();
     }
+
+    static boolean getUserInputIfCaseSensitive(Scanner scanner) {
+        boolean value = false;
+        do {
+            String inputValue = getUserInput(scanner);
+            if (inputValue.equalsIgnoreCase("y")) {
+                value = true;
+                break;
+            } else if (inputValue.equalsIgnoreCase("n"))
+                break;
+            else {
+                System.out.println("Invalid input! Valid values are [y\\n]");
+            }
+        } while (true);
+        return value;
+    }
 }
